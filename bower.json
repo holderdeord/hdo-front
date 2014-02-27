@@ -1,0 +1,8 @@
+{
+    "name": "hdo-front",
+    "private": true,
+    "dependencies": {
+        "twbs-bootstrap-sass": "~3.1.1"
+    },
+    "devDependencies": {}
+}

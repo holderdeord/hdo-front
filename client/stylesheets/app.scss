@@ -1,0 +1,12 @@
+// this fails because of https://github.com/andrew/node-sass/issues/233
+// @import "../bower_components/twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap";
+
+body {
+  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  text-align: center;
+
+}
+
+h1 {
+  font-weight: 200;
+  color: deeppink; }
