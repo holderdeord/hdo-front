@@ -2,11 +2,22 @@
 // @import "../bower_components/twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap";
 
 body {
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-  text-align: center;
-
+  font: 16px/1.5 "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 600px;
 }
 
 h1 {
   font-weight: 200;
-  color: deeppink; }
+  border-bottom: 2px solid gray;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+  &:hover {
+    background: rgba(blue, 0.1);
+  }
+}
