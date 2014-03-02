@@ -4,6 +4,8 @@ This is the frontend for the redesigned and API-backed holderdeord.no.
 
 # Setup
 
+* Make sure you are using an up-to-date version of npm.
+
     $ npm run setup
     $ npm test
     $ npm start
