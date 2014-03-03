@@ -19,7 +19,6 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
 // middleware
-
 app.use('/javascript', browserify('./client/javascript'));
 
 app.use(sass.middleware({
@@ -34,7 +33,6 @@ app.use(express.static(__dirname + '/public'));
 require('./routes')(app);
 
 // launch
-
 app.listen(app.get('port'), function() {
     console.log('hdo-front started on ' + app.get('port'));
 });

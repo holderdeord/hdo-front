@@ -10,6 +10,8 @@ This is the frontend for the redesigned and API-backed holderdeord.no.
     $ npm test
     $ npm start
 
+Tips use Nodemon to watch filechanges (https://github.com/remy/nodemon).
+
 # Learn
 
 * http://expressjs.com/api.html
