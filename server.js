@@ -2,12 +2,11 @@ var express = require('express');
 var browserify = require('browserify-middleware');
 var hbs = require('express-hbs');
 var sass = require('node-sass');
-var hdo = require('./lib/hdo');
 
 var app = express();
 
 // config
-
+app.use(express.logger('short'));
 app.engine('hbs', hbs.express3({
     layoutsDir: __dirname + '/views/_layouts',
     defaultLayout: __dirname + '/views/_layouts/default.hbs',
@@ -32,10 +31,7 @@ app.use(sass.middleware({
 app.use(express.static(__dirname + '/public'));
 
 // routes
-app.get('/', hdo.front.index);
-app.get('/organisasjoner/partier', hdo.front.organizations.parties);
-app.get('/organisasjoner/partier/:slug', hdo.front.organizations.party);
-
+require('./routes')(app);
 
 // launch
 
