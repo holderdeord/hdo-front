@@ -6,9 +6,9 @@ This is the frontend for the redesigned and API-backed holderdeord.no.
 
 * Make sure you are using an up-to-date version of npm.
 
-    $ npm run setup
-    $ npm test
-    $ npm start
+    - $ npm run setup
+    - $ npm test
+    - $ npm start
 
 Tips use Nodemon to watch filechanges (https://github.com/remy/nodemon).
 
