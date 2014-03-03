@@ -1,8 +1,14 @@
 module.exports = function (app) {
     var hdo = require('./lib/hdo');
+    var representative = require('./lib/representative');
 
     app.get('/', hdo.front.index);
 
+    //People
+    app.get('/representanter', representative.representatives);
+    app.get('/representant/:slug', representative.representative);
+
+    //Organizations
     app.get('/organisasjoner/partier', hdo.front.organizations.parties);
     app.get('/organisasjoner/partier/:slug', hdo.front.organizations.party);
 
