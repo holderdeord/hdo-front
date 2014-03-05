@@ -4,8 +4,7 @@
         "it"        : false,
         "expect"    : false,
         "beforeEach": false,
-        "afterEach" : false,
-        "assert"    : false
+        "afterEach" : false
     },
 
     "bitwise": true,
