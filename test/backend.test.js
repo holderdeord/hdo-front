@@ -1,5 +1,10 @@
 var backend = require('../lib/hdo/backend');
 var assert = require('assert');
+var Promise = require('bluebird');
+
+Promise.onPossiblyUnhandledRejection(function (error) {
+    throw error;
+});
 
 describe('Backend', function(){
     describe('representative', function(){
