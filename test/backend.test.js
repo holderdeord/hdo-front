@@ -9,22 +9,18 @@ Promise.onPossiblyUnhandledRejection(function (error) {
 // TODO: maybe look at https://www.npmjs.org/package/assert-promise ?
 
 describe('Backend', function(){
-    describe('representative', function(){
-        it('should reject when the value is not found', function(){
-            backend.representatives.getBySlug('no').then(function() {
+    describe('representatives', function(){
+        it('should find an existing representative', function(){
+            backend.representatives.getBySlug('jes').then(function(rep) {
+                assert.equal('string', typeof rep.fullName);
+            });
+        });
+        
+        it('should reject when the representative does not exist', function(){
+            backend.representatives.getBySlug('no-such-representative').then(function() {
                 assert(false, 'Expected promise to be rejected');
             }, function(error) {
                 assert.equal('no such representative', error);
-            });
-        });
-    });
-});
-
-describe('Backend', function(){
-    describe('representative', function(){
-        it('should fulfill when the value is found', function(){
-            backend.representatives.getBySlug('jes').then(function(rep) {
-                assert.equal('Jens Stoltenberg', rep.fullName);
             });
         });
     });
