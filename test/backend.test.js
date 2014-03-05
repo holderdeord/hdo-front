@@ -6,10 +6,16 @@ Promise.onPossiblyUnhandledRejection(function (error) {
     throw error;
 });
 
+// TODO: maybe look at https://www.npmjs.org/package/assert-promise ?
+
 describe('Backend', function(){
     describe('representative', function(){
         it('should reject when the value is not found', function(){
-            assert.equal(true, backend.representatives.getBySlug('no').isRejected());
+            backend.representatives.getBySlug('no').then(function() {
+                assert(false, 'Expected promise to be rejected');
+            }, function(error) {
+                assert.equal('no such representative', error);
+            });
         });
     });
 });
@@ -17,7 +23,9 @@ describe('Backend', function(){
 describe('Backend', function(){
     describe('representative', function(){
         it('should fulfill when the value is found', function(){
-            assert.equal(true, backend.representatives.getBySlug('jes').isFulfilled());
+            backend.representatives.getBySlug('jes').then(function(rep) {
+                assert.equal('Jens Stoltenberg', rep.fullName);
+            });
         });
     });
 });
