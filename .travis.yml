@@ -6,7 +6,7 @@ notifications:
     - jari@holderdeord.no
   hipchat:
     rooms:
-      secure: "dPDcvtGQXXzdj31ftZkRShrn+l1TCnTEPTdr6YVAfzAI1Ashzhr4yGvnNfMs\n4lbxYDJfRxpTO5Xd1Hte5HH7c0ijoHEGjajySSl43+nLeShw+CWhuxKSbmCM\nnICGbjLhNPSDTIg1QPO/AkUCF3YG6szmd3JX9XLathUrt0HOBTY="
+      secure: "mO1ZhQiTQqSEYIK1jDoBkXQsBZy0TD7UQ89KAHTaAMfjz76PKuTv0fr06J8Sxgir5GtxgCRPZhs+TaOZEm988NZe4JrfB/M1eC2V98+jT7p4CSaK+xPLh0zA96WTxhB0dHY2jzbU5G555nvlrCB97O+q0XpKMxbqC7DqtfBVsxw="
     on_success: always
     on_failure: always
   template:
