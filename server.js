@@ -2,6 +2,7 @@ var express = require('express');
 var browserify = require('browserify-middleware');
 var hbs = require('express-hbs');
 var sass = require('node-sass');
+var hdo = require('./lib/hdo');
 
 var app = express();
 
@@ -30,7 +31,9 @@ app.use(sass.middleware({
 app.use(express.static(__dirname + '/public'));
 
 // routes
-require('./routes')(app);
+app.get('/', hdo.handlers.front);
+app.get('/representanter/:slug', hdo.handlers.representative);
+
 
 // launch
 app.listen(app.get('port'), function() {
