@@ -20,8 +20,6 @@ Tips use Nodemon to watch filechanges (https://github.com/remy/nodemon).
 
 # Issues
 
-* Importing bootstrap fails because of https://github.com/andrew/node-sass/issues/233
-
 # Questions
 
 * url/route helpers?!
