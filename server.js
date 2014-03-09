@@ -2,6 +2,7 @@ var express = require('express');
 var browserify = require('browserify-middleware');
 var hbs = require('express-hbs');
 var less = require('less-middleware');
+
 var hdo = require('./lib/hdo');
 
 var app = express();
@@ -22,11 +23,14 @@ app.set('views', __dirname + '/views');
 // middleware
 app.use('/javascript', browserify('./client/javascript'));
 
-app.use(less({
-    src: __dirname + '/client',
-    dest: __dirname + '/public',
-    debug: true,
-}));
+app.use(
+    less(__dirname + '/client', {
+        dest: __dirname + '/public',
+        debug: true
+    }, {
+        paths: [__dirname + '/client/bower_components/bootstrap/less']
+    })
+);
 
 app.use(express.static(__dirname + '/public'));
 app.use('/fonts', express.static(__dirname + '/client/bower_components/bootstrap/fonts'));
