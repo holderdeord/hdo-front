@@ -29,6 +29,7 @@ app.use(less({
 }));
 
 app.use(express.static(__dirname + '/public'));
+app.use('/fonts', express.static(__dirname + '/client/bower_components/bootstrap/fonts'));
 
 // routes
 app.get('/', hdo.handlers.front);
