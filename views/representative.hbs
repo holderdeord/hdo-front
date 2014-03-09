@@ -1,15 +1,23 @@
 <h1>{{fullName}} ({{age}})</h1>
 
-<div>
-    <a href="/organisasjoner/partier/{{party.slug}}">{{party.name}}</a>
-        for
-    <a href="/distrikter/{{district}}">{{district}}</a>
+<div class="container-fluid">
+    <div class="row">
+        <a href="/partier/{{party.slug}}">{{party.name}}</a>
+            for
+        <a href="/distrikter/{{district}}">{{district}}</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <img src="{{img}}" alt="{{fullName}}" width="240" height="320">
+        </div>
+
+        <div class="col-md-7">
+            <ul>
+                {{#propositions}}
+                    <li>{{text}}</li>
+                {{/propositions}}
+            </ul>
+        </div>
+    </div>
 </div>
-
-<img src="{{img}}" alt="{{fullName}}" width="331" height="442">
-
-<ul>
-    {{#propositions}}
-        <li>{{text}}</li>
-    {{/propositions}}
-</ul>

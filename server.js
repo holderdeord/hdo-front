@@ -2,10 +2,11 @@ var express = require('express');
 var browserify = require('browserify-middleware');
 var hbs = require('express-hbs');
 var less = require('less-middleware');
-
 var hdo = require('./lib/hdo');
 
 var app = express();
+
+var bowerDir = __dirname + '/client/bower_components';
 
 // config
 app.use(express.logger('short'));
@@ -28,12 +29,12 @@ app.use(
         dest: __dirname + '/public',
         debug: true
     }, {
-        paths: [__dirname + '/client/bower_components/bootstrap/less']
+        paths: [bowerDir + '/bootstrap/less']
     })
 );
 
 app.use(express.static(__dirname + '/public'));
-app.use('/fonts', express.static(__dirname + '/client/bower_components/bootstrap/fonts'));
+app.use('/fonts', express.static(bowerDir + '/bootstrap/fonts'));
 
 // routes
 app.get('/', hdo.handlers.front);
