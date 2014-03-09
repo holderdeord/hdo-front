@@ -18,7 +18,9 @@ Tips use Nodemon to watch filechanges (https://github.com/remy/nodemon).
 * http://expressjs.com/api.html
 * https://github.com/barc/express-hbs
 
-# Issues
+# Todo
+
+* Switch to SASS when [node-sass is fixed](https://github.com/andrew/node-sass/issues/233)
 
 # Questions
 
