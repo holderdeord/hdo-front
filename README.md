@@ -20,7 +20,7 @@ Tips use Nodemon to watch filechanges (https://github.com/remy/nodemon).
 
 # Todo
 
-Make it azm!
+Make it more azm!
 
 # Questions
 
