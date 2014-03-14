@@ -20,7 +20,6 @@ Tips use Nodemon to watch filechanges (https://github.com/remy/nodemon).
 
 # Todo
 
-* Switch to SASS when [node-sass is fixed](https://github.com/andrew/node-sass/issues/233)
 
 # Questions
 

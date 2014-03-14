@@ -1,7 +1,7 @@
 var express = require('express');
 var browserify = require('browserify-middleware');
 var hbs = require('express-hbs');
-var less = require('less-middleware');
+var sass = require('node-sass');
 var hdo = require('./lib/hdo');
 
 var app = express();
@@ -24,8 +24,8 @@ app.set('views', __dirname + '/views');
 // middleware
 app.use('/javascript', browserify('./client/javascript'));
 
-app.use(
-    less(__dirname + '/client', {
+app.use(sass.middleware
+    (__dirname + '/client', {
         dest: __dirname + '/public',
         debug: true
     }, {
