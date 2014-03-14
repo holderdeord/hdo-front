@@ -25,13 +25,12 @@ app.set('views', __dirname + '/views');
 app.use('/javascript', browserify('./client/javascript'));
 
 app.use(sass.middleware({
-       src: __dirname + '/client',
-       dest: __dirname + '/public',
-       debug: true,
-       outputStyle: 'compressed',
-       includePaths: [bowerDir + '/twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap']
-    })
-);
+    src: __dirname + '/client',
+    dest: __dirname + '/public',
+    debug: true,
+    outputStyle: 'compressed',
+    includePaths: [bowerDir + '/twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap']
+}));
 
 app.use(express.static(__dirname + '/public'));
 app.use('/fonts', express.static(bowerDir + '/twbs-bootstrap-sass/vendor/assets/fonts'));
@@ -39,6 +38,7 @@ app.use('/fonts', express.static(bowerDir + '/twbs-bootstrap-sass/vendor/assets/
 // routes
 app.get('/', hdo.handlers.front);
 app.get('/representanter/:slug', hdo.handlers.representative);
+app.get('/' + encodeURIComponent('vilkår'), hdo.handlers.front);
 
 
 // launch
