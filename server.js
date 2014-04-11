@@ -3,13 +3,14 @@ var browserify = require('browserify-middleware');
 var hbs = require('express-hbs');
 var sass = require('node-sass');
 var hdo = require('./lib/hdo');
+var logger = require('morgan');
 
 var app = express();
 
 var bowerDir = __dirname + '/client/bower_components';
 
 // config
-app.use(express.logger('short'));
+app.use(logger('short'));
 app.engine('hbs', hbs.express3({
     layoutsDir: __dirname + '/views/_layouts',
     defaultLayout: __dirname + '/views/_layouts/default.hbs',
