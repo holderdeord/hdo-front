@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/holderdeord/hdo-front.png?branch=master)](https://travis-ci.org/holderdeord/hdo-front)
-[![Gitter chat](https://badges.gitter.im/holderdeord.png)](https://gitter.im/holderdeord)
 # hdo-front
 
 This is the frontend for the redesigned and API-backed holderdeord.no.
