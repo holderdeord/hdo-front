@@ -2,7 +2,7 @@
 # hdo-front
 
 This is the frontend for the redesigned and API-backed holderdeord.no.
-Can be seen at http://hdo-front.jit.su/
+Can be seen at [hdo-front.jit.su](http://hdo-front.jit.su/)
 
 # Setup
 
