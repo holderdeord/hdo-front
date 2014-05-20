@@ -19,10 +19,23 @@ Tips use Nodemon to watch filechanges (https://github.com/remy/nodemon).
 * http://expressjs.com/api.html
 * https://github.com/barc/express-hbs
 
-# Todo
+# How to deploy
 
-Make it more azm!
+We use Nodejitsu to host the project.
+If you have access you bump the version in package.json.
+After the version is bumped you can run the command:
 
+    jitsu deploy
+
+For cheatsheet see [here.](http://cheatsheet.nodejitsu.com/)
+
+# Contribute
+
+Stuff about how to contribute to this project.
+
+# TODO
+
+[Issue #3](https://github.com/holderdeord/hdo-front/issues/3) Problems with css on Nodejitsu.
 # Questions
 
 * url/route helpers?!
