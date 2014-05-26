@@ -5,4 +5,8 @@
 <ul>
     <li><a href="/representanter/jes">Jens</a></li>
     <li><a href="/representanter/es">Erna</a></li>
+
+    {{#representatives}}
+      <li><a href="/representanter/{{slug}}">{{first_name}}</a></li>
+    {{/representatives}}
 </ul>

@@ -37,6 +37,7 @@ app.use('/fonts', express.static(bowerDir + '/twbs-bootstrap-sass/vendor/assets/
 // routes
 app.get('/', hdo.handlers.front);
 app.get('/representanter/:slug', hdo.handlers.representative);
+app.get('/partier/:slug', hdo.handlers.party);
 app.get('/' + encodeURIComponent('vilkår'), hdo.handlers.front);
 
 
