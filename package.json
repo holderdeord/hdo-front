@@ -1,7 +1,7 @@
 {
   "name": "hdo-front",
   "description": "Frontend for holderdeord.no.",
-  "version": "0.0.1-5",
+  "version": "0.0.1-7",
   "author": "Holder de ord contributors",
   "repository": {
     "type": "git",
@@ -33,5 +33,5 @@
     "chai": "^1.9.0",
     "mocha": "^1.18.0"
   },
-  "subdomain": "hdo-front2"
+  "subdomain": "hdo-front"
 }
