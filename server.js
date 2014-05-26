@@ -1,13 +1,11 @@
-var express = require('express');
-var browserify = require('browserify-middleware');
-var hbs = require('express-hbs');
-var sass = require('node-sass');
-var hdo = require('./lib/hdo');
-var logger = require('morgan');
-
-var app = express();
-
-var bowerDir = __dirname + '/client/bower_components';
+var express    = require('express'),
+    browserify = require('browserify-middleware'),
+    hbs        = require('express-hbs'),
+    sass       = require('node-sass'),
+    hdo        = require('./lib/hdo'),
+    logger     = require('morgan'),
+    app        = express(),
+    bowerDir = __dirname + '/client/bower_components';
 
 // config
 app.use(logger('short'));
