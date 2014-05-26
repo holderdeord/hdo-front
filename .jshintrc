@@ -8,7 +8,7 @@
     },
 
     "bitwise": true,
-    "camelcase": true,
+    "camelcase": false,
     "curly": true,
     "eqeqeq": false,
     "es3": false,

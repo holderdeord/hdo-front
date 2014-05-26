@@ -1,0 +1,19 @@
+projectDirectory = "$CWD"
+
+# Extra files to include
+#
+myExtraIncludes = ".tm_properties,.htaccess,.gitignore,.travis.yml,.jshintrc,.editorconfig"
+fileBrowserGlob  = "{*,$myExtraIncludes}"
+include = "{*,$include,$myExtraIncludes}"
+
+# Hide log, vendor and tmp directories from search popups.
+#
+myExtraExcludes = "node_modules"
+excludeInFileChooser  = "{$excludeInFileChooser,$myExtraExcludes}"
+excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}"
+
+scmStatus = false
+
+[ source.js ]
+softTabs = true
+tabSize  = 4
