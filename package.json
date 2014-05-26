@@ -15,7 +15,7 @@
     "postdeploy": "bower install",
     "start": "node server.js",
     "start-dev": "./node_modules/.bin/nodemon --ignore ./node_modules/ server.js",
-    "test": "./node_modules/.bin/jshint server.js lib/ && ./node_modules/.bin/mocha -R spec test test/*",
+    "test": "./node_modules/.bin/jshint server.js lib test && ./node_modules/.bin/mocha -R spec test test/*",
     "tdd": "./node_modules/.bin/mocha --watch -R spec test test/*"
   },
   "dependencies": {
@@ -30,7 +30,8 @@
     "uri-template": "~0.4.1",
     "moment": "~2.6.0",
     "halfred": "^0.2.0",
-    "request": "^2.36.0"
+    "request": "^2.36.0",
+    "deepmerge": "^0.2.7"
   },
   "devDependencies": {
     "jshint": "^2.4.4",
