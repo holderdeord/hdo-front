@@ -19,6 +19,7 @@ app.engine('hbs', hbs.express3({
 app.set('port', Number(process.env.PORT || 9090));
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
+app.disable('x-powered-by');
 
 // middleware
 app.use('/javascript', browserify('./client/javascript'));
