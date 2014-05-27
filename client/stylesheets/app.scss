@@ -1,18 +1,71 @@
+@charset "UTF-8";
 // bootstrap variable overrides
 
-$body-bg: skyblue;
+//$body-bg: skyblue;
 
 @import "bootstrap";
 
-body {
-  font: 16px/1.5 "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  margin: 0 auto;
-  padding: 20px;
-  max-width: 600px;
-}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; }
 
-h1 {
-  font-weight: 200;
-  border-bottom: 2px solid gray;
+body {
+  font: 16px/1.5 georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-hyphens: auto;
+  margin: 0;
+  padding-bottom: 100px; }
+
+.container {
+  max-width: 800px;
+  padding: 0 20px;
+  margin: 0 auto; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin: 0; }
+
+p {
+  margin: 0;
+  padding-bottom: 1em; }
+
+#siteheader {
+  border-top: 4px solid black;
+  margin-bottom: 2em;
+  text-align: right;
+  font-family: "Avenir Next", sans-serif; }
+
+  #siteheader .container {
+    padding: 1.9em 0 1em 0; }
+  #siteheader h1 {
+    font-weight: 700;
+    margin-left: 210px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 2em;
+    line-height: 1; }
+    @media (max-width: 767px) {
+      #siteheader h1 {
+        margin-left: 20px; } }
+  #siteheader .clicky {
+    font-weight: 700;
+    font-size: 2em;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    height: 1.5em;
+    line-height: 1.6;
+    text-align: center;
+    border-radius: 2px;
+    width: 1.55em;
+    margin-left: -2em;
+    position: fixed;
+    top: 0.8em;
+    transition: 0.5s; }
+    #siteheader .clicky:hover {
+      background-color: black;
+      transition: 0.1s;
+      cursor: pointer; }
+
+img.portrait {
+  border-radius: 10px;
 }

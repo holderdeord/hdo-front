@@ -17,3 +17,11 @@ scmStatus = false
 [ source.js ]
 softTabs = true
 tabSize  = 4
+
+[ text.html ]
+softTabs = true
+tabSize  = 4
+
+[ text.html.mustache ]
+softTabs = true
+tabSize  = 4

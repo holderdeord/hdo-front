@@ -1,23 +1,38 @@
 {{#contentFor "title"}}{{fullName}} | Representanter | Holder de ord{{/contentFor}}
 
-<h1>{{fullName}} ({{age}})</h1>
+<div class="container">
+    <h1>{{fullName}} ({{age}})</h1>
 
-<div class="container-fluid">
-    <div class="row">
-        <a href="/partier/{{party.slug}}">{{party.name}}</a>
-            for
-        <a href="/distrikter/{{district.slug}}">{{district.name}}</a>
-    </div>
+    <hr>
 
     <div class="row">
         <div class="col-md-5">
-            <img src="{{img}}" alt="{{fullName}}" width="240" height="320">
+            <img class="portrait" src="{{img}}" alt="{{fullName}}" width="240" height="320">
         </div>
 
         <div class="col-md-2"></div>
 
         <div class="col-md-5">
-          <img src="{{partyLogo}}" alt="{{party.name}}s logo">
+            <div class="row">
+                <a href="/partier/{{party.slug}}">{{party.name}}</a>
+                  for
+                <a href="/distrikter/{{district.slug}}">{{district.name}}</a>
+            </div>
+
+            <div class="row">
+                <a href="/partier/{{party.slug}}">
+                    <img src="{{partyLogo}}" alt="{{party.name}}s logo">
+                </a>
+            </div>
+
+            <div class="row">
+                Medlem av
+                <ul>
+                    {{#committees}}
+                        <li>{{name}}</li>
+                    {{/committees}}
+                </ul>
+            </div>
         </div>
     </div>
 </div>
