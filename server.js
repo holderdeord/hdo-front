@@ -5,7 +5,8 @@ var express    = require('express'),
     hdo        = require('./lib/hdo'),
     logger     = require('morgan'),
     app        = express(),
-    bowerDir = __dirname + '/client/bower_components';
+    bowerDir   = __dirname + '/client/bower_components',
+    config     = require('./config');
 
 // config
 app.use(logger('short'));
@@ -16,7 +17,7 @@ app.engine('hbs', hbs.express3({
     beautify: true
 }));
 
-app.set('port', Number(process.env.PORT || 9090));
+app.set('port', config.get('PORT'));
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 app.disable('x-powered-by');
@@ -32,8 +33,10 @@ app.use(sass.middleware({
     includePaths: [bowerDir + '/twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap']
 }));
 
+if(app.get('env') === 'development') { app.use(express.errorHandler()); }
 app.use(express.static(__dirname + '/public'));
 app.use('/fonts', express.static(bowerDir + '/twbs-bootstrap-sass/vendor/assets/fonts'));
+
 
 // routes
 app.get('/', hdo.handlers.front);

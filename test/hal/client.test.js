@@ -2,10 +2,7 @@ var
     client  = require('../../lib/hal/client'),
     assert  = require('assert'),
     nock    = require('nock'),
-    Promise = require('bluebird'),
     merge   = require('deepmerge');
-
-Promise.onPossiblyUnhandledRejection(function (error) { throw error; });
 
 describe('HalClient', function() {
     var rootResponse     = { _links: {'ea:orders': {href: 'http://api.io/orders'}}},
