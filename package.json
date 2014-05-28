@@ -22,7 +22,6 @@
     "express": "^4.0.0",
     "express-hbs": "^0.7.9",
     "browserify-middleware": "^2.3.0",
-    "lodash": "^2.4.1",
     "bluebird": "^1.2.4",
     "node-sass": "^0.8.6",
     "jquery": "^2.1.0",
@@ -32,7 +31,8 @@
     "halfred": "^0.2.0",
     "request": "^2.36.0",
     "deepmerge": "^0.2.7",
-    "nconf": "^0.6.9"
+    "nconf": "^0.6.9",
+    "errorhandler": "^1.0.1"
   },
   "devDependencies": {
     "jshint": "^2.4.4",

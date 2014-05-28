@@ -33,7 +33,9 @@ app.use(sass.middleware({
     includePaths: [bowerDir + '/twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap']
 }));
 
-if(app.get('env') === 'development') { app.use(express.errorHandler()); }
+if(app.get('env') === 'development') {
+    app.use(require('errorhandler')());
+}
 app.use(express.static(__dirname + '/public'));
 app.use('/fonts', express.static(bowerDir + '/twbs-bootstrap-sass/vendor/assets/fonts'));
 
