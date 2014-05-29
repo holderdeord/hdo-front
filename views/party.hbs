@@ -1,15 +1,18 @@
 {{#contentFor "title"}}{{name}} | Partier | Holder de ord{{/contentFor}}
 
 <div class="container">
-    <h1>{{name}}</h1>
+    <div class="col-md-3"></div>
+    <div class="col-md-8">
+        <h1>{{name}}</h1>
 
-    <div class="container-fluid">
+        <hr>
+
         <div class="row">
             <div class="col-md-6">
                 <img src="{{logo}}">
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 text-right">
                 <ul class="list-unstyled">
                 {{#representatives}}
                     <li>
@@ -21,8 +24,6 @@
                 {{/representatives}}
                 </ul>
             </div>
-
         </div>
     </div>
-
 </div>

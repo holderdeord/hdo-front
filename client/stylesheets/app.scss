@@ -3,6 +3,15 @@
 
 //$body-bg: lightblue;
 
+$headings-font-weight: normal;
+
+$font-family-sans-serif:  "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$font-family-base:        $font-family-serif !default;
+
+$text-color: black;
+$link-color: #3399cc;
+
 @import "bootstrap";
 
 * {
@@ -10,19 +19,13 @@
   -moz-box-sizing: border-box; }
 
 body {
-  font: 16px/1.5 georgia, serif;
+  font: 16px/1.5 $font-family-base;
   -webkit-font-smoothing: antialiased;
   -webkit-hyphens: auto;
   margin: 0;
   padding-bottom: 100px; }
 
-.container {
-  max-width: 800px;
-  padding: 0 20px;
-  margin: 0 auto; }
-
 h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
   margin: 0; }
 
 p {
@@ -33,7 +36,7 @@ p {
   border-top: 4px solid black;
   margin-bottom: 2em;
   text-align: right;
-  font-family: "Avenir Next", sans-serif; }
+  font-family: $font-family-sans-serif; }
 
   #siteheader .container {
     padding: 1.9em 0 1em 0; }
@@ -57,7 +60,6 @@ p {
     text-align: center;
     border-radius: 2px;
     width: 1.55em;
-    margin-left: -2em;
     position: fixed;
     top: 0.8em;
     transition: 0.5s; }
