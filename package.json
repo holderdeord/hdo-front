@@ -32,7 +32,9 @@
     "request": "^2.36.0",
     "deepmerge": "^0.2.7",
     "nconf": "^0.6.9",
-    "errorhandler": "^1.0.1"
+    "errorhandler": "^1.0.1",
+    "lru-cache": "^2.5.0",
+    "eu": "cucumber-ltd/eu"
   },
   "devDependencies": {
     "jshint": "^2.4.4",
