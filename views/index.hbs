@@ -1,10 +1,27 @@
 {{#contentFor "title"}}Holder de ord{{/contentFor}}
 
-<ul>
-    <li><a href="/representanter/jes">Jens</a></li>
-    <li><a href="/representanter/es">Erna</a></li>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            Partier
 
-    {{#representatives}}
-      <li><a href="/representanter/{{slug}}">{{first_name}}</a></li>
-    {{/representatives}}
-</ul>
+            <ul class="list-unstyled">
+                {{#parties}}
+                    <li><a href="/partier/{{slug}}">{{name}}</a></li>
+                {{/parties}}
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            Saker
+
+            <ul class="list-unstyled">
+                {{#issues}}
+                    <li><a href="/saker/{{slug}}">{{title}}</a></li>
+                {{/issues}}
+            </ul>
+
+        </div>
+
+    </div>
+</div>

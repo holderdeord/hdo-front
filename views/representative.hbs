@@ -1,13 +1,13 @@
-{{#contentFor "title"}}{{fullName}} | Representanter | Holder de ord{{/contentFor}}
+{{#contentFor "title"}}{{name}} | Representanter | Holder de ord{{/contentFor}}
 
 <div class="container">
-    <h1>{{fullName}}</h1>
+    <h1>{{name}}</h1>
 
     <hr>
 
     <div class="row">
         <div class="col-md-5 text-center">
-            <img class="portrait" src="{{img}}" alt="{{fullName}}" width="240" height="320">
+            <img class="portrait" src="{{image}}" alt="{{name}}" width="240" height="320">
         </div>
 
         <div class="col-md-2"></div>
@@ -19,7 +19,7 @@
 
             <div class="row" style="padding-top: 0.5em;">
                 <a href="/partier/{{party.slug}}">
-                    <img src="{{partyLogo}}" alt="{{party.name}}s logo">
+                    <img src="{{party.logo}}" alt="{{party.name}}s logo">
                 </a>
             </div>
 

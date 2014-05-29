@@ -39,7 +39,7 @@ p {
     padding: 1.9em 0 1em 0; }
   #siteheader h1 {
     font-weight: 700;
-    margin-left: 210px;
+//    margin-left: 210px;
     text-align: left;
     text-transform: uppercase;
     font-size: 2em;
@@ -68,4 +68,11 @@ p {
 
 img.portrait {
   border-radius: 10px;
+}
+
+.fullwidth {
+  background: #eeeeee 50% 50% no-repeat;
+  background-size: cover;
+  height: 300px;
+  margin: 2em 0;
 }

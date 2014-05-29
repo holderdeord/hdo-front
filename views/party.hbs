@@ -1,9 +1,28 @@
 {{#contentFor "title"}}{{name}} | Partier | Holder de ord{{/contentFor}}
 
-<h1>{{name}}</h1>
+<div class="container">
+    <h1>{{name}}</h1>
 
-<div class="container-fluid">
-    <div class="row">
-      <img src="{{logo}}">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{logo}}">
+            </div>
+
+            <div class="col-md-6">
+                <ul class="list-unstyled">
+                {{#representatives}}
+                    <li>
+                        <a href="/representanter/{{slug}}">
+                            {{name}}
+                            <!-- <img src={{image}} width="100px"></img> -->
+                        </a>
+                    </li>
+                {{/representatives}}
+                </ul>
+            </div>
+
+        </div>
     </div>
+
 </div>
