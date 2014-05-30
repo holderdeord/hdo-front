@@ -45,7 +45,7 @@ app.get('/', hdo.handlers.front);
 app.get('/representanter/:slug', hdo.handlers.representative);
 app.get('/partier/:slug', hdo.handlers.party);
 app.get('/saker/:slug', hdo.handlers.issue);
-app.get('/robots.txt', hdo.handlers.robots)
+app.get('/robots.txt', hdo.handlers.robots);
 
 
 // launch
