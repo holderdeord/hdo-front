@@ -38,6 +38,14 @@ p {
   text-align: right;
   font-family: $font-family-sans-serif; }
 
+  #siteheader a {
+    color: black;
+  }
+
+  #siteheader a:hover {
+    text-decoration: none;
+  }
+
   #siteheader .container {
     padding: 1.9em 0 1em 0; }
   #siteheader h1 {
