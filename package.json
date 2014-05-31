@@ -1,7 +1,7 @@
 {
   "name": "hdo-front",
   "description": "Frontend for holderdeord.no.",
-  "version": "0.0.1-21",
+  "version": "0.0.1-22",
   "author": "Holder de ord contributors",
   "repository": {
     "type": "git",
