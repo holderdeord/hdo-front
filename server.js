@@ -1,3 +1,4 @@
+
 var express    = require('express'),
     browserify = require('browserify-middleware'),
     hbs        = require('express-hbs'),
@@ -39,14 +40,12 @@ if(app.get('env') === 'development') {
 app.use(express.static(__dirname + '/public'));
 app.use('/fonts', express.static(bowerDir + '/twbs-bootstrap-sass/vendor/assets/fonts'));
 
-
 // routes
 app.get('/', hdo.handlers.front);
 app.get('/representanter/:slug', hdo.handlers.representative);
 app.get('/partier/:slug', hdo.handlers.party);
 app.get('/saker/:slug', hdo.handlers.issue);
 app.get('/robots.txt', hdo.handlers.robots);
-
 
 // launch
 app.listen(app.get('port'), function() {
