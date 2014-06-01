@@ -1,5 +1,5 @@
 var client  = require('../../lib/hal/client'),
-    assert  = require('assert'),
+    assert  = require('referee').assert,
     nock    = require('nock'),
     merge   = require('deepmerge');
 
@@ -63,7 +63,7 @@ describe('HalClient', function() {
         };
 
         return api.request(basicRequestSpec).then(function(actual) {
-            assert.equal(JSON.stringify(expected, null, '  '), JSON.stringify(actual.original(), null, '  '));
+            assert.jsonEquals(actual.original(), expected);
         });
     });
 
@@ -78,7 +78,7 @@ describe('HalClient', function() {
         var expected = basicRequestSpec,
             actual   = builder.specs;
 
-        assert.equal(JSON.stringify(expected, null, '  '), JSON.stringify(actual, null, '  '));
+        assert.jsonEquals(actual, expected);
     });
 
     it('uses embedded resources if present', function () {
@@ -86,10 +86,10 @@ describe('HalClient', function() {
             spec = [merge(basicRequestSpec[0], {follow: [{params: {id: 14}}]})];
 
         return api.request(spec).then(function (res) {
-            var order = res.embedded('ea:orders').embedded('ea:find');
+            var order = res.embedded('ea:orders').embedded('ea:find'),
                 basket = order.embedded('ea:basket');
 
-            assert.equal(JSON.stringify(basket.original(), null, '  '), JSON.stringify(embeddedBasket, null, '  '));
+            assert.jsonEquals(basket.original(), embeddedBasket);
         });
     });
 });
