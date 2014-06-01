@@ -3,8 +3,8 @@ var Promise = require('bluebird'),
 
 referee.add('jsonEquals', {
     assert: function (actual, expected) {
-        this.actualString = JSON.stringify(actual);
-        this.expectedString = JSON.stringify(expected);
+        this.actualString = JSON.stringify(actual, null, '  ');
+        this.expectedString = JSON.stringify(expected, null, '  ');
 
         return this.actualString == this.expectedString;
     },

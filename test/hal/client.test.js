@@ -4,16 +4,47 @@ var client  = require('../../lib/hal/client'),
     merge   = require('deepmerge');
 
 describe('HalClient', function() {
-    var rootResponse     = { _links: {'ea:orders': {href: 'http://api.io/orders'}}},
-        ordersResponse   = { _links: {'ea:find': {href: 'http://api.io/orders/{id}', templated: true}}},
-        customerResponse = { name: 'foo' },
+    var rootResponse = {
+        _links: {
+            'ea:orders': {href: 'http://api.io/orders'},
+            'ea:customers': {href: 'http://api.io/customers'}
+        }
+    },
+
+        customerResponse = { name: 'foo'},
         basketResponse   = { name: 'bar'},
         embeddedBasket   = { name: 'baz' },
-        findResponse     = { _links: { 'ea:customer': { href: 'http://api.io/customer/42'},
+
+        ordersResponse    = { _links: {'ea:find': {href: 'http://api.io/orders/{id}', templated: true}}},
+
+        customersResponse = {
+            _links: {
+                'ea:next': {href: 'http://api.io/customers?page=2'}
+            },
+            _embedded: {
+                'ea:customers': [
+                    merge(customerResponse, {id: 1}),
+                    merge(customerResponse, {id: 2}),
+                    merge(customerResponse, {id: 3})
+                ]
+            }
+        },
+
+        nextCustomersResponse = merge(customersResponse, {
+            _embedded: {
+                'ea:customers': [
+                    merge(customerResponse, {id: 4}),
+                    merge(customerResponse, {id: 5}),
+                    merge(customerResponse, {id: 6})
+                ]
+            }
+        }),
+
+        findResponse      = { _links: { 'ea:customer': { href: 'http://api.io/customer/1'},
                                        'ea:basket': {href: 'http://api.io/basket/123'}}},
 
         findResponseWithEmbeddedCustomer = {
-            _links: { 'ea:customer': { href: 'http://api.io/customer/42'} },
+            _links: { 'ea:customer': { href: 'http://api.io/customer/1'} },
             _embedded: { 'ea:basket': embeddedBasket }
         },
 
@@ -38,7 +69,9 @@ describe('HalClient', function() {
             .get('/orders').reply(200, ordersResponse)
             .get('/orders/13').reply(200, findResponse)
             .get('/orders/14').reply(200, findResponseWithEmbeddedCustomer)
-            .get('/customer/42').reply(200, customerResponse)
+            .get('/customers').reply(200, customersResponse)
+            .get('/customers?page=2').reply(200, nextCustomersResponse)
+            .get('/customer/1').reply(200, customerResponse)
             .get('/basket/123').reply(200, basketResponse);
     });
 
@@ -82,14 +115,31 @@ describe('HalClient', function() {
     });
 
     it('uses embedded resources if present', function () {
-        var api = client('http://api.io'),
+        var api  = client('http://api.io'),
             spec = [merge(basicRequestSpec[0], {follow: [{params: {id: 14}}]})];
 
         return api.request(spec).then(function (res) {
-            var order = res.embedded('ea:orders').embedded('ea:find'),
+            var order  = res.embedded('ea:orders').embedded('ea:find'),
                 basket = order.embedded('ea:basket');
 
             assert.jsonEquals(basket.original(), embeddedBasket);
+        });
+    });
+
+    it('can follow pagination', null, function () {
+        var api = client('http://api.io');
+
+        var spec = [
+            {
+                rel: 'ea:customers',
+                paginate: true
+
+            }
+        ];
+
+        return api.request(spec).then(function (res) {
+            var customerCount = res.embedded('ea:customers').embeddedArray('ea:customers').length;
+            assert.equals(customerCount, 6);
         });
     });
 });
