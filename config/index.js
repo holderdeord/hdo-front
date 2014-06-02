@@ -6,6 +6,7 @@ nconf.argv()
         PORT: 9090,
         NODE_ENV: 'dev',
         api: 'http://www.holderdeord.no/api/',
+        cache: 'enabled'
     });
 
 module.exports = nconf;
