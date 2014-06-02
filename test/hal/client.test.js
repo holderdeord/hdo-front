@@ -30,7 +30,7 @@ describe('HalClient', function() {
             }
         },
 
-        nextCustomersResponse = merge(customersResponse, {
+        nextCustomersResponse = {
             _embedded: {
                 'ea:customers': [
                     merge(customerResponse, {id: 4}),
@@ -38,7 +38,7 @@ describe('HalClient', function() {
                     merge(customerResponse, {id: 6})
                 ]
             }
-        }),
+        },
 
         findResponse      = { _links: { 'ea:customer': { href: 'http://api.io/customer/1'},
                                        'ea:basket': {href: 'http://api.io/basket/123'}}},
@@ -65,7 +65,8 @@ describe('HalClient', function() {
         ];
 
     beforeEach(function () {
-        nock('http://api.io').get('/').reply(200, rootResponse)
+        nock('http://api.io')
+            .get('/').reply(200, rootResponse)
             .get('/orders').reply(200, ordersResponse)
             .get('/orders/13').reply(200, findResponse)
             .get('/orders/14').reply(200, findResponseWithEmbeddedCustomer)
@@ -100,6 +101,35 @@ describe('HalClient', function() {
         });
     });
 
+
+    it('uses embedded resources if present', function () {
+        var api  = client('http://api.io'),
+            spec = [merge(basicRequestSpec[0], {follow: [{params: {id: 14}}]})];
+
+        return api.request(spec).then(function (res) {
+            var order  = res.embedded('ea:orders').embedded('ea:find'),
+                basket = order.embedded('ea:basket');
+
+            assert.jsonEquals(basket.original(), embeddedBasket);
+        });
+    });
+
+    it('can follow pagination', function () {
+        var api = client('http://api.io', {next: 'ea:next'});
+
+        var spec = [
+            {
+                rel: 'ea:customers',
+                paginate: true
+            }
+        ];
+
+        return api.request(spec).then(function (res) {
+            var customerCount = res.embedded('ea:customers').embeddedArray('ea:customers').length;
+            assert.equals(customerCount, 6);
+        });
+    });
+
     it('builds a request spec', function () {
         var api     = client('http://api.io/'),
             builder = api.builder(),
@@ -114,33 +144,18 @@ describe('HalClient', function() {
         assert.jsonEquals(actual, expected);
     });
 
-    it('uses embedded resources if present', function () {
-        var api  = client('http://api.io'),
-            spec = [merge(basicRequestSpec[0], {follow: [{params: {id: 14}}]})];
+    it('builds a request spec with pagination', function () {
+        var api = client('http://api.io/'),
+            builder = api.builder();
 
-        return api.request(spec).then(function (res) {
-            var order  = res.embedded('ea:orders').embedded('ea:find'),
-                basket = order.embedded('ea:basket');
+        builder.follow('ea:orders', null, {paginate: true});
 
-            assert.jsonEquals(basket.original(), embeddedBasket);
-        });
-    });
-
-    it('can follow pagination', null, function () {
-        var api = client('http://api.io');
-
-        var spec = [
+        assert.match(builder.specs, [
             {
-                rel: 'ea:customers',
+                rel: 'ea:orders',
                 paginate: true
-
             }
-        ];
-
-        return api.request(spec).then(function (res) {
-            var customerCount = res.embedded('ea:customers').embeddedArray('ea:customers').length;
-            assert.equals(customerCount, 6);
-        });
+        ]);
     });
 });
 
