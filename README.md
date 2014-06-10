@@ -35,7 +35,6 @@ Stuff about how to contribute to this project.
 
 # TODO
 
-[Issue #3](https://github.com/holderdeord/hdo-front/issues/3) Problems with css on Nodejitsu.
 # Questions
 
 * url/route helpers?!
