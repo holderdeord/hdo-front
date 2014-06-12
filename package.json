@@ -43,7 +43,8 @@
     "nodemon": "^1.0.19",
     "chai": "^1.9.0",
     "mocha": "^1.18.0",
-    "nock": "^0.32.2"
+    "nock": "^0.32.2",
+    "node-inspector": "^0.7.4"
   },
   "subdomain": "hdo-front",
   "domains": [
