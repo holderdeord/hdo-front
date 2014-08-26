@@ -36,32 +36,36 @@ p {
   border-top: 4px solid black;
   margin-bottom: 2em;
   text-align: right;
-  font-family: $font-family-sans-serif; }
-
-  #siteheader a {
+  font-family: $font-family-sans-serif;
+  position: absolute;
+  width: 100%;
+  a {
     color: black;
+    color: white;
+    &:hover {
+      text-decoration: none;
+    }
   }
 
-  #siteheader a:hover {
-    text-decoration: none;
+  .container {
+    padding: 1.9em 0 1em 0;
   }
 
-  #siteheader .container {
-    padding: 1.9em 0 1em 0; }
-  #siteheader h1 {
+  h1 {
     font-weight: 700;
-//    margin-left: 210px;
     text-align: left;
     text-transform: uppercase;
     font-size: 2em;
-    line-height: 1; }
+    line-height: 1;
     @media (max-width: 767px) {
-      #siteheader h1 {
-        margin-left: 20px; } }
-  #siteheader .clicky {
+      margin-left: 20px;
+    }
+  }
+
+  .clicky {
     font-weight: 700;
     font-size: 2em;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(black, 1);
     color: white;
     height: 1.5em;
     line-height: 1.6;
@@ -71,14 +75,36 @@ p {
     margin-left: -1em;
     position: fixed;
     top: 0.8em;
-    transition: 0.5s; }
-    #siteheader .clicky:hover {
+    transition: 0.5s;
+
+    &:hover {
       background-color: black;
       transition: 0.1s;
-      cursor: pointer; }
+      cursor: pointer;
+    }
+  }
+}
 
 img.portrait {
   border-radius: 10px;
+}
+
+.masthead {
+  background: transparent 50% 50% no-repeat;
+  background-size: cover;
+  padding: 1em 0;
+  height: 30em;
+  position: relative;
+  z-index: -1;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: -webkit-linear-gradient(top, rgba(#000, 0.6), rgba(#000, 0));
+  }
 }
 
 .fullwidth {
@@ -86,4 +112,36 @@ img.portrait {
   background-size: cover;
   height: 300px;
   margin: 2em 0;
+}
+
+.representatives {
+  &:after {
+    display: block;
+    content: "";
+    clear: left;
+  }
+  .representative {
+    float: left;
+    width: 20%;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 1;
+    box-sizing: border-box;
+    height: 170px;
+    padding: 10px;
+    .image {
+      margin: 0 auto 10px auto;
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      background: transparent 50% 0% no-repeat;
+      background-size: 100% auto;
+    }
+    .name {
+      font-family: $font-family-sans-serif;
+      font-weight: 600;
+    }
+  }
 }

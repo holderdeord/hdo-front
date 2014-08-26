@@ -1,29 +1,53 @@
 {{#contentFor "title"}}{{name}} | Partier | Holder de ord{{/contentFor}}
 
+<div class="masthead" style="background-image: url('https://farm4.staticflickr.com/3813/9720997585_647b5271b2_c.jpg');">
+    <div class="container">
+    </div>
+</div>
+
 <div class="container">
-    <div class="col-md-3"></div>
-    <div class="col-md-8">
-        <h1>{{name}}</h1>
 
-        <hr>
-
-        <div class="row">
-            <div class="col-md-6">
-                <img src="{{logo}}">
-            </div>
-
-            <div class="col-md-6 text-right">
-                <ul class="list-unstyled">
-                {{#representatives}}
-                    <li>
-                        <a href="/representanter/{{slug}}">
-                            {{name}}
-                            <!-- <img src={{image}} width="100px"></img> -->
-                        </a>
-                    </li>
-                {{/representatives}}
-                </ul>
-            </div>
+    <div class="row">
+        <div class="col-md-1 col-md-offset-1">
+            <hr>
+            <img class="img-responsive" src="{{logo}}">
         </div>
+        <div class="col-md-7">
+            <hr>
+
+            <h1>{{name}}</h1>
+            <p>Kristelig Folkeparti (KrF) er et kristendemokratisk politisk parti i Norge. Kristelig Folkeparti ble stiftet i 1933 som en reaksjon på tiltagende sekularisering i samfunnet. Partiet identifiserer seg som et sentrumsparti bygd på et kristent livssyn.[1] Skjønt det ofte har blitt omtalt som et borgerlig parti, foretrekker partiet selv betegnelsen «ikke-sosialistisk».[1]</p>
+
+                <a href="#">Lenke til KrFs hjemmeside</a><br>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- CONSIDER: This could be created as bootstrap row/cols -->
+                    <div class="representatives">
+                        {{#representatives}}
+                            <a class="representative" href="/representanter/{{slug}}">
+                                <div class="image" style="background-image: url({{image}})"></div>
+                                <span class="name">{{name}}</span>
+                            </a>
+                        {{/representatives}}
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="#">Lenke til partiprogram</a><br>
+                    <a href="#">Lenke til løfter</a><br>
+                </div>
+            </div>
+
+            <hr>
+
+        </div>
+
     </div>
 </div>
