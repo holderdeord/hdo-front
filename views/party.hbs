@@ -26,12 +26,22 @@
                 <div class="col-md-12">
                     <!-- CONSIDER: This could be created as bootstrap row/cols -->
                     <div class="representatives">
-                        {{#representatives}}
-                            <a class="representative" href="/representanter/{{slug}}">
-                                <div class="image" style="background-image: url({{image}})"></div>
-                                <span class="name">{{name}}</span>
-                            </a>
-                        {{/representatives}}
+                        {{#eachGroupOf 3 representatives}}
+                        <div class="row">
+                            {{#this}}
+                            <div class="col-md-4">
+                              <a class="representative" href="/representanter/{{slug}}">
+                                  <div class="image" style="background-image: url({{image}})"></div>
+                                  <span class="name">{{name}}</span>
+                              </a>
+
+
+                            </div>
+                            {{/this}}
+                        </div>
+
+                          {{/this}}
+                        {{/eachGroupOf}}
                     </div>
                 </div>
             </div>

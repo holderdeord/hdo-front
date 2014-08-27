@@ -2,6 +2,7 @@
 var express    = require('express'),
     browserify = require('browserify-middleware'),
     hbs        = require('express-hbs'),
+    hbsHelpers = require('./lib/hbs-helpers'),
     sass       = require('node-sass'),
     hdo        = require('./lib/hdo'),
     logger     = require('morgan'),
@@ -17,6 +18,7 @@ app.engine('hbs', hbs.express3({
     partialsDir: __dirname + '/views/_partials',
     beautify: true
 }));
+hbsHelpers.addTo(hbs);
 
 app.set('port', config.get('PORT'));
 app.set('view engine', 'hbs');
