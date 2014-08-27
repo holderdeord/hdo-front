@@ -18,20 +18,25 @@
             <h1>{{name}}</h1>
             <p>Kristelig Folkeparti (KrF) er et kristendemokratisk politisk parti i Norge. Kristelig Folkeparti ble stiftet i 1933 som en reaksjon på tiltagende sekularisering i samfunnet. Partiet identifiserer seg som et sentrumsparti bygd på et kristent livssyn.[1] Skjønt det ofte har blitt omtalt som et borgerlig parti, foretrekker partiet selv betegnelsen «ikke-sosialistisk».[1]</p>
 
-                <a href="#">Lenke til KrFs hjemmeside</a><br>
+            <a href="#">Lenke til KrFs hjemmeside</a><br>
 
             <hr>
 
             <div class="row">
                 <div class="col-md-12">
-                    <!-- CONSIDER: This could be created as bootstrap row/cols -->
                     <div class="representatives">
-                        {{#representatives}}
-                            <a class="representative" href="/representanter/{{slug}}">
-                                <div class="image" style="background-image: url({{image}})"></div>
-                                <span class="name">{{name}}</span>
-                            </a>
-                        {{/representatives}}
+                        {{#eachGroupOf 3 representatives}}
+                            <div class="row">
+                                {{#each this}}
+                                    <div class="col-md-4">
+                                        <a class="representative" href="/representanter/{{slug}}">
+                                            <div class="image" style="background-image: url({{image}})"></div>
+                                            <span class="name">{{name}}</span>
+                                        </a>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        {{/eachGroupOf}}
                     </div>
                 </div>
             </div>
