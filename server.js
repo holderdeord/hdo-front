@@ -15,8 +15,7 @@ app.use(logger('short'));
 app.engine('hbs', hbs.express3({
     layoutsDir: __dirname + '/views/_layouts',
     defaultLayout: __dirname + '/views/_layouts/default.hbs',
-    partialsDir: __dirname + '/views/_partials',
-    beautify: true
+    partialsDir: __dirname + '/views/_partials'
 }));
 hbsHelpers.addTo(hbs);
 
