@@ -22,7 +22,7 @@
 
             <ul class="list-unstyled">
                 {{#parties}}
-                    <li><a href="/partier/{{slug}}">{{name}}</a></li>
+                    <li><a href="{{href}}">{{name}}</a></li>
                 {{/parties}}
             </ul>
         </div>
@@ -32,10 +32,11 @@
 
             <ul class="list-unstyled">
                 {{#issues}}
-                    <li><a href="/saker/{{slug}}">{{title}}</a></li>
+                    <li><a href="{{href}}">{{title}}</a></li>
                 {{/issues}}
             </ul>
 
+            <a href="/saker">Se alle</a>
         </div>
 
     </div>
