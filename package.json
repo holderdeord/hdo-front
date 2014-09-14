@@ -19,8 +19,8 @@
     "tdd": "./node_modules/.bin/mocha --watch test test/*/*.js"
   },
   "dependencies": {
-    "bluebird": "^1.2.4",
-    "browserify-middleware": "^2.3.0",
+    "bluebird": "^2.2.2",
+    "browserify-middleware": "^2.8.0",
     "deepmerge": "^0.2.7",
     "errorhandler": "^1.0.1",
     "eu": "^1.1.1",
@@ -30,8 +30,8 @@
     "jquery": "^2.1.0",
     "lodash": "^2.4.1",
     "lru-cache": "^2.5.0",
-    "moment": "~2.6.0",
-    "morgan": "~1.0.0",
+    "moment": "^2.6.0",
+    "morgan": "^1.0.1",
     "nconf": "^0.6.9",
     "node-sass": "^0.8.6",
     "referee": "^1.0.3",
