@@ -145,3 +145,11 @@ img.portrait {
     }
   }
 }
+
+svg#no-map {
+    fill: lightgray;
+
+    .county[active=true] {
+        fill: #444;
+    }
+}
