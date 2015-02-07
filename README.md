@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/holderdeord/hdo-front.png?branch=master)](https://travis-ci.org/holderdeord/hdo-front)
-# hdo-front
+# hdo-front [![Build Status](https://travis-ci.org/holderdeord/hdo-front.png?branch=master)](https://travis-ci.org/holderdeord/hdo-front)
 
 This is the frontend for the redesigned and API-backed holderdeord.no.
 Can be seen at [front.holderdeord.no](http://front.holderdeord.no/)
