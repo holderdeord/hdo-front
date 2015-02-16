@@ -32,8 +32,6 @@ For cheatsheet see [here.](http://cheatsheet.nodejitsu.com/)
 
 Stuff about how to contribute to this project.
 
-# TODO
-
 # Questions
 
 * url/route helpers?!
